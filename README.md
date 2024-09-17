@@ -4,11 +4,11 @@
 <p align="center">
     <h1 align="center">AUTHORIZATION_WEBSITE</h1>
 </p>
-<p align="center">
+<!-- <p align="center">
     <em><code>❯ REPLACE-ME</code></em>
-</p>
+</p> -->
 <p align="center">
-	<img src="https://img.shields.io/github/license/arvind20286/authorization_website?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+	<!-- <img src="https://img.shields.io/github/license/arvind20286/authorization_website?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license"> -->
 	<img src="https://img.shields.io/github/last-commit/arvind20286/authorization_website?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
 	<img src="https://img.shields.io/github/languages/top/arvind20286/authorization_website?style=flat&color=0080ff" alt="repo-top-language">
 	<img src="https://img.shields.io/github/languages/count/arvind20286/authorization_website?style=flat&color=0080ff" alt="repo-language-count">
@@ -18,6 +18,7 @@
 </p>
 <p align="center">
 	<img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=flat&logo=HTML5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/Django-3.2%20LTS-green" alt="DJango">
 	<img src="https://img.shields.io/badge/Python-3776AB.svg?style=flat&logo=Python&logoColor=white" alt="Python">
 </p>
 
