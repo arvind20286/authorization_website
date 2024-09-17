@@ -141,7 +141,7 @@
 
 ###  Prerequisites
 
-**Python**: `version x.y.z`
+**Python**: `version 3.9.1`
 
 ###  Installation
 
@@ -167,10 +167,10 @@ Build the project from source:
 To run the project, execute the following command:
 
 ```sh
-❯ python main.py
+❯ python manage.py runserver
 ```
 
-###  Tests
+<!-- ###  Tests
 
 Execute the test suite using the following command:
 
@@ -184,7 +184,7 @@ Execute the test suite using the following command:
 
 - [X] **`Task 1`**: <strike>Implement feature one.</strike>
 - [ ] **`Task 2`**: Implement feature two.
-- [ ] **`Task 3`**: Implement feature three.
+- [ ] **`Task 3`**: Implement feature three. -->
 
 ---
 
@@ -232,7 +232,7 @@ Contributions are welcome! Here are several ways you can contribute:
 </details>
 
 ---
-
+<!-- 
 ##  License
 
 This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
@@ -243,4 +243,4 @@ This project is protected under the [SELECT-A-LICENSE](https://choosealicense.co
 
 - List any resources, contributors, inspiration, etc. here.
 
----
+--- -->
