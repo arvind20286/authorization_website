@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="google-signin-client_id"
+      content="775820619887-949m71g9o41l44qu8evrg83ivbi4tbhq.apps.googleusercontent.com"
+    />
+    <script src="https://accounts.google.com/gsi/client" async></script>
+
+    <title>Login Page</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4;
+        font-family: Arial, sans-serif;
+      }
+
+      .login-container {
+        background: white;
+        padding: 40px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        width: 300px;
+      }
+
+      h1 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #333;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        margin-top: 20px;
+        background-color: #28a745;
+        border: none;
+        border-radius: 4px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #218838;
+      }
+
+      #google_btn {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="login-container">
+      <h1>Login</h1>
+      <div style="display: none; color: rgb(218, 96, 96)" id="dne_messg">
+        Email Does not exist. Please register
+      </div>
+      <form method="post" action="{% url 'auth_app:verify' %}" id="login_form">
+        {% csrf_token %}
+        <input type="email" placeholder="Email" name="email" required />
+        <input
+          type="password"
+          placeholder="Password"
+          name="password"
+          required
+        />
+        <!-- <input type="submit" value="Login"> -->
+        <button type="submit">Login</button>
+      </form>
+      <div style="margin: 10px">OR</div>
+      <div id="google_btn"></div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        google.accounts.id.initialize({
+          client_id:
+            "775820619887-949m71g9o41l44qu8evrg83ivbi4tbhq.apps.googleusercontent.com",
+          login_uri:
+            "https://7500-2401-4900-1c21-8ffa-a8d3-151d-f1db-e94.ngrok-free.app/auth_app/google-signin/",
+          ux_mode: "redirect",
+        });
+        const parent = document.getElementById("google_btn");
+        google.accounts.id.renderButton(parent, { theme: "filled_blue" });
+        google.accounts.id.prompt();
+      };
+      async function isValid() {
+        let is_valid = false;
+        let form = document.getElementById("login_form");
+        let formData = {};
+        for (let i = 0; i < form.elements.length; i++) {
+          let element = form.elements[i];
+          if (element.type !== "submit") {
+            formData[element.name] = element.value;
+          }
+        }
+        let jsonData = JSON.stringify(formData);
+        console.log(jsonData);
+        await fetch("{% url 'auth_app:verify' %}", {
+          method: "POST",
+          body: jsonData,
+          headers: {
+            "Content-type": "application/json; charset=UTF-8",
+          },
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            if (data.user_exists) {
+              is_valid = true;
+              console.log(is_valid);
+            }
+          });
+        console.log(is_valid);
+        if (!is_valid) {
+          document.getElementById("dne_messg").style.display = "block";
+        } else {
+          window.location.href = "{% url 'auth_app:welcome' %}";
+        }
+      }
+      document
+        .getElementById("login_form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          isValid();
+        });
+    </script>
+  </body>
+</html>
