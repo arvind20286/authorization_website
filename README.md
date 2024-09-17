@@ -43,13 +43,36 @@
 
 ##  Overview
 
-<code>❯ REPLACE-ME</code>
+<code>❯ This project is a web-based authentication system that supports user login via two methods: traditional email/password authentication and Google OAuth. Built using Django as the backend framework, it offers a seamless login experience and ensures secure user management. The system efficiently handles different authentication methods and stores user information in a unified database structure. This project is ideal for applications where users might prefer multiple authentication options while keeping their data safe and organized.</code>
 
 ---
 
 ##  Features
 
-<code>❯ REPLACE-ME</code>
+<code>❯ ## Features
+
+- **Dual Authentication Support**:
+  - Users can sign up and log in using their email and password.
+  - Alternatively, users can log in using their Google account via Google OAuth.
+
+- **Secure Password Management**:
+  - Email/password users’ credentials are stored securely using hashed passwords (e.g., bcrypt).
+  
+- **Google OAuth Integration**:
+  - Users logging in via Google can seamlessly authenticate using their Google account.
+  - User profile details such as name, email, and profile picture are automatically fetched and stored.
+
+- **Session Management**:
+  - Both authentication methods maintain secure sessions, allowing users to stay logged in across multiple pages.
+  
+- **Unified User Management**:
+  - A single database table is used to store all users, whether they log in via email or Google, keeping user data consistent and easy to manage.
+
+- **Customizable User Profile**:
+  - Users can update their profile information, such as name and profile picture (especially for Google login users).
+
+- **Scalable and Extensible**:
+  - The project is designed to be easily extendable to include more social logins or additional authentication features.</code>
 
 ---
 
