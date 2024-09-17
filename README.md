@@ -48,9 +48,6 @@
 ---
 
 ##  Features
-
-<code>❯ ## Features
-
 - **Dual Authentication Support**:
   - Users can sign up and log in using their email and password.
   - Alternatively, users can log in using their Google account via Google OAuth.
@@ -72,7 +69,7 @@
   - Users can update their profile information, such as name and profile picture (especially for Google login users).
 
 - **Scalable and Extensible**:
-  - The project is designed to be easily extendable to include more social logins or additional authentication features.</code>
+  - The project is designed to be easily extendable to include more social logins or additional authentication features.
 
 ---
 
