@@ -74,7 +74,7 @@
       <div style="display: none; color: rgb(218, 96, 96)" id="dne_messg">
         Email Does not exist. Please register
       </div>
-      <form method="post" action="{% url 'auth_app:verify' %}" id="login_form">
+      <form id="login_form">
         {% csrf_token %}
         <input type="email" placeholder="Email" name="email" required />
         <input

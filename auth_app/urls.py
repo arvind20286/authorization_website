@@ -7,5 +7,7 @@ urlpatterns = [
     path("verify/", views.verify, name="verify"),
     path("logout/", views.logout, name="logout"),
     path("google-signin/", views.googleSignin, name="google-signin"),
-    path("welcome/", views.welcome, name='welcome')
+    path("welcome/", views.welcome, name='welcome'),
+    path("register/", views.register, name="register"),
+    path("check-registration", views.checkRegistration, name="check_registration"),
 ]

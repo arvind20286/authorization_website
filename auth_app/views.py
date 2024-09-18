@@ -11,6 +11,10 @@ import json
 
 CLIENT_ID = "775820619887-949m71g9o41l44qu8evrg83ivbi4tbhq.apps.googleusercontent.com"
 
+def sessionExists(request):
+    if request.session.__contains__("loggedin") and request.session.get("loggedin"):
+        return True
+    return False
 
 def index(request):
     if request.session.__contains__("loggedin") and request.session.get("loggedin"):
@@ -22,6 +26,19 @@ def welcome(request):
     if request.session.__contains__("loggedin") and request.session.get("loggedin"):
         return render(request, "welcome.html", {"email": request.session.get("email")})
     return HttpResponseRedirect(reverse("auth_app:index"))
+
+def register(request):
+    if(sessionExists(request)):
+        return HttpResponseRedirect(reverse("auth_app:welcome"))
+    return render(request, "registration.html")
+
+@csrf_exempt
+def checkRegistration(request):
+    if request.method == "POST":
+        print(request.POST)
+        return JsonResponse({
+            "registration_successful":True
+        })
 
 @csrf_exempt
 def verify(request):
